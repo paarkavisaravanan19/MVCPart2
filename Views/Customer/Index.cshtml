@@ -1,0 +1,58 @@
+﻿@model IEnumerable<MVCPracticePart2.Models.CustomerModel>
+
+@{
+    ViewData["Title"] = "Customers List";
+}
+
+<h1>All Customers</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.CustomerID)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CustomerName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ContactNo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Location)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.emailid)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.CustomerID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CustomerName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ContactNo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Location)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.emailid)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new {  id=item.CustomerID  }) |
+                @Html.ActionLink("Delete", "Delete", new {  id=item.CustomerID  })
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
